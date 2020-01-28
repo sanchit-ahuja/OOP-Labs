@@ -22,11 +22,21 @@ public class Customer {
     public double getbalance() {
         return balance;
     }
-    // public void setbalance(double balance) {
-    //     this.balance = balance;
-    // }
     void print() {
-        System.out.println("ItemName "+ item.getitemName() + "itemIdNo "+ item.getitemidNo() + "itemQuantity " + item.getitemQuantity() + "ItemPrice "+ item.getitemPrice() + "Balance "+ balance);
+        System.out.println("ItemName "+ item.getitemName()+ "\n" + "itemIdNo "+ item.getitemidNo()+ "\n" + "itemQuantity "+ "\n" + item.getitemQuantity()+ "\n" + "ItemPrice "+ item.getitemPrice()+ "\n" + "Balance "+ balance);
     }
-    
+    void buyItem(Item item) {
+        this.item = item;
+        double totalCost = item.getitemPrice()*item.getitemQuantity();
+        if(balance - totalCost >=0 && item.getitemQuantity()>0){
+            balance -= totalCost;
+            print();
+        }
+        else if (item.getitemQuantity()<=0){
+            System.out.println("Invalid Order");
+        }
+        else {
+            System.out.println("Insufficient balance");
+        }
+    }
 }

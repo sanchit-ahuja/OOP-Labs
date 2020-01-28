@@ -10,7 +10,7 @@ public class Exercise2 {
         System.out.println("Enter a char");
         s = in.next().charAt(0);
         System.out.println("Ascii val "+(int)s);
-        
+
 
    } 
 }
